@@ -7,14 +7,19 @@ export const registerUser = async (username, password) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      user: {
-        username,
-        password,
-      },
-    }),
+    body: JSON.stringify({}),
   });
   const data = await response.json();
   console.log(data);
   return data;
+};
+export function fetchAllPosts = async () => {
+  try {
+    const response = fetch(`{base_url/posts}`);
+    const result = await response.json();
+    if(result.error) throw result.error;
+    return result.data.posts;
+  } catch (err) {
+    console.error("ERROR: fetchAllPosts", err)
+  }
 };
