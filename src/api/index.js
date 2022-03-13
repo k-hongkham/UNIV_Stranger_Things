@@ -1,5 +1,5 @@
 export const registerUser = async (username, password) => {
-  await fetch(
+  const response = await fetch(
     "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/users/register",
     {
       method: "POST",
@@ -14,7 +14,7 @@ export const registerUser = async (username, password) => {
       }),
     }
   );
-  const data = await Response.json();
+  const data = await response.json();
   console.log(data);
   return data;
 };
