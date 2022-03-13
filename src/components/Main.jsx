@@ -1,9 +1,10 @@
 import React from "react";
+import SignUp from "./SignUp";
 
 const Main = () => {
   return (
     <div>
-      <h1>hello main</h1>
+      <SignUp />
     </div>
   );
 };
