@@ -19,9 +19,15 @@ const Posts = () => {
 
   return (
     <>
-      <h1>Posts</h1>
       {posts.map((post, idx) => {
-        return <div key={post._id}>{post.title}</div>;
+        return (
+          <div>
+            <div key={post._id}>
+              <h3>{post.title}</h3>
+            </div>
+            <div>{post.description}</div>
+          </div>
+        );
       })}
     </>
   );
