@@ -1,14 +1,31 @@
-import React from "react"
-import { useEffect } from "react/cjs/react.production.min"
+import React, {useEffect, useState} from "react"
+import { fetchAllPosts } from "../api"
 
 const Posts =()=> {
-    const [Posts, setPosts]= useState([])
-
+    const [posts, setPosts]= useState([])
+console.log(posts)
     useEffect(()=>{
 
-    })
+const getPosts = async ()=>{
+  const response = await fetchAllPosts()  
+ 
+  console.log("data:", response)
+  setPosts(data.data.posts)
+}
+getPosts()
+
+    },[])
     
-    return 
+    return (<>
+  
+       <h1>Posts</h1>
+       {posts.map((e, index)=>{
+           return <div key = {e._id}>{e.title}</div>
+       }
+       )}
+     
+   
+    </>)
 }
 
 export default Posts
