@@ -14,15 +14,8 @@ export const registerUser = async (username, password) => {
   return data;
 };
 
-// export const fetchAllPosts = async () => {
-//   const response = await fetch(`${base_url}/posts`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({}),
-//   });
-//   const data = await response.json();
-//   console.log(data);
-//   return data;
-// };
+export const fetchAllPosts = async () => {
+  const response = await fetch(`${base_url}/posts`);
+  const data = await response.json();
+  return data;
+};

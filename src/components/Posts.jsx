@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-// import { fetchAllPosts } from "../api";
+import { fetchAllPosts } from "../api";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchPostsView = async () => {
-      const response = await fetch(
-        "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft/posts"
-      );
-      const data = await response.json();
-      console.log("data:", data);
+    const getPosts = async () => {
+      const response = await fetchAllPosts();
+      const newPosts = response.data.posts;
+      console.log("data:", newPosts);
 
-      setPosts(data.data.posts);
+      setPosts(newPosts);
+      console.log("newposts:", newPosts);
     };
-    fetchPostsView();
+    getPosts();
   }, []);
 
   return (
