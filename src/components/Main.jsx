@@ -1,6 +1,7 @@
 import React from "react";
 import Posts from "./Posts";
 import Navbar from "./Navbar";
+import SignUp from "./SignUp";
 
 const Main = () => {
   return (
