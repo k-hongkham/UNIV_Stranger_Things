@@ -21,3 +21,21 @@ export const updatePost = async (updateObject, token, postId) => {
   const data = await response.json();
   return data;
 };
+
+export const registerUser = async (username, password) => {
+  const response = await fetch (`${base_url}/users/register`,
+  {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user: {
+        username,
+        password,
+      }
+    })
+  })
+  const data = await response.json();
+  return data;
+  }
