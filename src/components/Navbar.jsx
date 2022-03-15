@@ -6,15 +6,18 @@ const Navbar = (props) => {
     <div className="nav_bar_container">
       <div className="link_container">
         <div>
-          <Link className="nav_links" to={"/"} className="nav_item">
-            Some Other Route
-          </Link>
-          <Link to={"/"} className="nav_item">
-            Another route
-          </Link>
-          <Link to={"/"} className="nav_item">
-            last route
-          </Link>
+          <nav className="nav">
+            <Link className="nav_links" to="/Posts">
+              POSTS
+            </Link>
+            <Link className="nav_links" to="/SignUp">
+              SIGN UP
+            </Link>
+            <Link className="nav_links" to="/Profile">
+              PROFILES
+            </Link>
+          </nav>
+          <div className="stuff"></div>
         </div>
       </div>
     </div>
