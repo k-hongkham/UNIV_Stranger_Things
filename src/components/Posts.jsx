@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
+import SinglePost from "./SinglePost";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);

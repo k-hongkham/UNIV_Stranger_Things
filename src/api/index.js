@@ -1,5 +1,3 @@
-import React from "react";
-
 const base_url =
   "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-ft";
 
