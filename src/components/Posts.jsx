@@ -19,10 +19,10 @@ const Posts = () => {
 
   return (
     <>
-      {posts.map((post, idx) => {
+      {posts.map((el, idx) => {
         return (
           <>
-<SinglePost />       </>
+<SinglePost posts={posts} setPosts={setPosts} el={el} key={idx}/>       </>
         );
       })}
     </>

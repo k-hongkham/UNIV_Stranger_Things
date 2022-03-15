@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 
-const SinglePost = ()=> {
+const SinglePost = ({token, el, posts, setPosts})=> {
     const [postTitle, setPostTitle]=useState ('')
 
+    const handleSubmit = async (e, postId)
     return(
         <div>
             <h3>{post.title}</h3>
