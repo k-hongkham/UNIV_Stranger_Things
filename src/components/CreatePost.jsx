@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const CreatePost = ({ posts, setPost }) => {
   const [title, setTitle] = useState([]);
@@ -14,8 +14,8 @@ const CreatePost = ({ posts, setPost }) => {
       const response = await createPost();
       const addNewPosts = response.data.posts;
       setDescription(addNewPosts);
-      console.log("newPosts:", addnewPosts);
-      setPost([data, ...posts]);
+      console.log("newPosts:", addNewPosts);
+      setPost([data, posts]);
       setTitle("");
       setDescription("");
     };
@@ -36,7 +36,7 @@ const CreatePost = ({ posts, setPost }) => {
           type="text"
           placeholder="DESCRIPTION"
           value={description}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         ></input>
         <button type="submit" className="add_posts_btn">
           SUBMIT

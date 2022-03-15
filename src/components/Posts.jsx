@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
 import SinglePost from "./SinglePost";
-import CreatePost from "./CreatePost";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -29,14 +28,7 @@ const Posts = () => {
               posts={posts}
               setPosts={setPosts}
             />
-            {/* <CreatePost posts={posts} setPosts={setPosts} /> */}
           </>
-          // <div>
-          //   <div key={post._id}>
-          //     <h3>{post.title}</h3>
-          //   </div>
-          //   <div>{post.description}</div>
-          // </div>
         );
       })}
     </>
