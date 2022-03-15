@@ -1,31 +1,37 @@
-import React, {useEffect, useState} from "react"
-import { fetchAllPosts } from "../api"
+import React, { useEffect, useState } from "react";
+import { fetchAllPosts } from "../api";
 
-const Posts =()=> {
-    const [posts, setPosts]= useState([])
-console.log(posts)
-    useEffect(()=>{
+const Posts = () => {
+  const [posts, setPosts] = useState([]);
 
-const getPosts = async ()=>{
-  const response = await fetchAllPosts()  
- 
-  console.log("data:", response)
-  setPosts(data.data.posts)
-}
-getPosts()
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await fetchAllPosts();
+      const newPosts = response.data.posts;
+      console.log("data:", newPosts);
 
-    },[])
-    
-    return (<>
-  
-       <h1>Posts</h1>
-       {posts.map((e, index)=>{
-           return <div key = {e._id}>{e.title}</div>
-       }
-       )}
-     
-   
-    </>)
-}
+      setPosts(newPosts);
+      console.log("newPosts:", newPosts);
+    };
+    getPosts();
+  }, []);
 
-export default Posts
+  return (
+    <>
+      {posts.map((post, idx) => {
+        return (
+          <>
+            <SinglePost
+              key={idx}
+              post={post}
+              posts={posts}
+              setPosts={setPosts}
+            />
+          </>
+        );
+      })}
+    </>
+  );
+};
+
+export default Posts;
