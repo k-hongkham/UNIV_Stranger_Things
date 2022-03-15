@@ -9,7 +9,7 @@ const SinglePost = ({ token, post, posts, setPosts }) => {
     const { data } = await updatePost({ title: postTitle }, token, postId);
   };
   return (
-    <div>
+    <div className="single_post_container">
       <h3>{post.title}</h3>
       <div>{post.description}</div>
       <form
