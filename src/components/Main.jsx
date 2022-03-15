@@ -3,16 +3,27 @@ import React from "react";
 import SignUp from "./SignUp";
 import Posts from "./Posts";
 import Navbar from "./Navbar";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 
 const Main = () => {
   return (
-    <div>
+    <div className="main">
+      <Navbar />
+      <nav className="nav">
+        <Link className="nav_links" to="/Posts">
+          POSTS
+        </Link>
+        <Link className="nav_links" to="/">
+          HOME
+        </Link>
+        <Link className="nav_links" to="/Profile">
+          PROFILES
+        </Link>
+      </nav>
+      <h1 className="main_title"> START POINT KH</h1>
       <Posts />
       <SignUp />
-      <div className="main_container">
-        <Navbar />
-        <h1 className="main_title"> HELLO WORLD!!!</h1>
+      <div className="stuff">
         {/* <Switch>
           <Route
             path="/"

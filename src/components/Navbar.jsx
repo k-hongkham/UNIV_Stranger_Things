@@ -6,7 +6,7 @@ const Navbar = (props) => {
     <div className="nav_bar_container">
       <div className="link_container">
         <div>
-          <Link to={"/"} className="nav_item">
+          <Link className="nav_links" to={"/"} className="nav_item">
             Some Other Route
           </Link>
           <Link to={"/"} className="nav_item">
