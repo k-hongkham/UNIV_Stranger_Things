@@ -10,9 +10,13 @@ const SignUp = ({setToken})=>{
         <div>
             <form onSubmit = {async(e)=>{
                 e.preventDefault()
+                console.log({username, password})
                 const result = await registerUser(username, password)
+                console.log(result)
+    
                 localStorage.setItem("token", result.data.token);
-                const myToken = localStorage.setItem(result.data.token)
+                const myToken = localStorage.getItem("token")
+                console.log("the token", myToken)
                 setToken(myToken)
             }}>
                 <input type = "text" placeholder = "Username" value = {username} onChange= {(e)=>
