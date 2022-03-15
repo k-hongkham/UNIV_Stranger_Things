@@ -19,3 +19,39 @@ export const fetchAllPosts = async () => {
   const data = await response.json();
   return data;
 };
+
+export const createPost = async (postDescription, token) => {
+  const response = await fetch(`${base_url}/posts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: {
+        title: postDescription.title,
+        description: postDescription.description,
+        location: postDescription.location,
+        price: postDescription.price,
+        willDeliver: postDescription.willDeliver,
+      },
+    }),
+  });
+  const data = await response.json();
+  return data;
+};
+
+export const updatePost = async (updateObject, token, postId) => {
+  const response = fetch(`${base_url}/posts/${postId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: updateObject,
+    }),
+  });
+  const data = await response.json();
+  return data;
+};
