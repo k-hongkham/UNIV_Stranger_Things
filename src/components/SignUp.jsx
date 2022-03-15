@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../api";
 
-const SignUp = () => {
+const SignUp = ({ setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,6 +16,7 @@ const SignUp = () => {
           localStorage.setItem("token", result.data.token);
           const myToken = localStorage.getItem("token");
           console.log(myToken);
+          setToken(myToken);
         }}
       >
         <input
