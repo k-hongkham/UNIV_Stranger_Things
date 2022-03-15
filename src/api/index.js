@@ -42,14 +42,14 @@ export const createPost = async (postDescription, token) => {
 };
 
 export const updatePost = async (updateObject, token, postId) => {
-  const response = fetch(`${base_url}/posts/${postId}`, {
+  const response = await fetch(`${base_url}/posts/${postId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      post: updateObject,
+      post: { updateObject },
     }),
   });
   const data = await response.json();
