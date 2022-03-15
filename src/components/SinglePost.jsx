@@ -16,7 +16,7 @@ const SinglePost = ({token, el, posts, setPosts})=> {
     handleSubmit(e, el._id)
 
 }}>
-    <input placeholder = "title" value = {postTitle} onChange= {(e)=>
+    <input type = "text" placeholder = "title" value = {postTitle} onChange= {(e)=>
     setPostTitle(e.target.value)} />
     <button type="submit">Update</button>
 </form>
