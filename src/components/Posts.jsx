@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
+import SinglePost from "./SinglePost";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -21,8 +22,7 @@ const Posts = () => {
       {posts.map((post, idx) => {
         return (
           <>
-            <h1>SHOULDWORK</h1>
-          </>
+<SinglePost />       </>
         );
       })}
     </>
