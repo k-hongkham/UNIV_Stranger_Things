@@ -36,9 +36,9 @@ export const createPost = async (postDescription, token) => {
       post: {
         title: postDescription.title,
         description: postDescription.description,
-        location: postDescription.location,
-        price: postDescription.price,
-        willDeliver: postDescription.willDeliver,
+        // location: postDescription.location,
+        // price: postDescription.price,
+        // willDeliver: postDescription.willDeliver,
       },
     }),
   });

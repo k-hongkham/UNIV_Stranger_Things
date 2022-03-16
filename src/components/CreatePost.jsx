@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { createPost } from "../api";
 
-const CreatePost = ({ posts, setPost }) => {
-  const [title, setTitle] = useState([]);
-  const [description, setDescription] = useState([]);
+const CreatePost = ({ post, setPost }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("title:", title);
+    console.log("description:", description);
+    const response = await createPost();
+    console.log("trying to add", response);
+    const addNewPosts = response.data.posts;
+    console.log("trying to add new posts", response.data.posts);
+    setDescription(addNewPosts);
+    console.log("newPosts:", addNewPosts);
+    setPost([data, ...posts]);
+    setTitle("");
+    setDescription("");
+
     console.log("title, description", title, description);
   };
-
-  useEffect(() => {
-    const makePosts = async () => {
-      const response = await createPost();
-      const addNewPosts = response.data.posts;
-      setDescription(addNewPosts);
-      console.log("newPosts:", addNewPosts);
-      setPost([data, posts]);
-      setTitle("");
-      setDescription("");
-    };
-    makePosts();
-  }, []);
 
   return (
     <>

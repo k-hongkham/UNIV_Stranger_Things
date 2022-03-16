@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { SignUp } from "./components";
 import SignUp from "./SignUp";
 import Posts from "./Posts";
 import Navbar from "./Navbar";
@@ -12,7 +11,10 @@ const Main = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    const localStorageToken = localStorage.getItem("token");
     console.log(token);
+    setToken(localStorageToken);
+    console.log("current token:", token);
   }, [token]);
   return (
     <div className="main">
@@ -20,7 +22,7 @@ const Main = () => {
       <Navbar />
       <CreatePost posts={posts} setPosts={setPosts} />
       <h1 className="main_title"> START POINT KH</h1>
-      <Posts />
+      <Posts token={token} />
     </div>
   );
 };

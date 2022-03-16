@@ -12,7 +12,6 @@ const Posts = () => {
       console.log("data:", newPosts);
 
       setPosts(newPosts);
-      console.log("newPosts:", newPosts);
     };
     getPosts();
   }, []);
