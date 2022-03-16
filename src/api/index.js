@@ -25,7 +25,7 @@ export const fetchAllPosts = async () => {
   return data;
 };
 
-export const createPost = async (postDescription, token) => {
+export const createPost = async (createdPost, token) => {
   const response = await fetch(`${base_url}/posts`, {
     method: "POST",
     headers: {
@@ -33,18 +33,7 @@ export const createPost = async (postDescription, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      post: {
-<<<<<<< HEAD
-        title: postDescription.title,
-        description: postDescription.description,
-=======
-        title,
-        description,
->>>>>>> cb977ffe36ce9657ae9a456214e7c76b8e551d76
-        // location: postDescription.location,
-        // price: postDescription.price,
-        // willDeliver: postDescription.willDeliver,
-      },
+      post: createdPost,
     }),
   });
   const data = await response.json();

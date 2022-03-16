@@ -21,6 +21,7 @@ const Main = () => {
       <SignUp setToken={setToken} />
       <Navbar />
       <CreatePost posts={posts} setPosts={setPosts} />
+
       <h1 className="main_title"> START POINT KH</h1>
       <Posts token={token} />
     </div>
