@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPost } from "../api";
 
+<<<<<<< HEAD
 const CreatePost = ({ post, setPost }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -20,6 +21,19 @@ const CreatePost = ({ post, setPost }) => {
     setDescription("");
 
     console.log("title, description", title, description);
+=======
+const CreatePost = ({ posts, setPosts }) => {
+  const [title, setTitle] = useState([]);
+  const [description, setDescription] = useState([]);
+
+  const handleSubmit = async ({ element }) => {
+    element.preventDefault();
+    const response = await createPost();
+    const info = response.data.posts;
+    setPosts([info, posts]);
+    setTitle("");
+    setDescription("");
+>>>>>>> cb977ffe36ce9657ae9a456214e7c76b8e551d76
   };
 
   return (

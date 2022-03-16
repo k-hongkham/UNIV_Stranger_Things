@@ -34,8 +34,13 @@ export const createPost = async (postDescription, token) => {
     },
     body: JSON.stringify({
       post: {
+<<<<<<< HEAD
         title: postDescription.title,
         description: postDescription.description,
+=======
+        title,
+        description,
+>>>>>>> cb977ffe36ce9657ae9a456214e7c76b8e551d76
         // location: postDescription.location,
         // price: postDescription.price,
         // willDeliver: postDescription.willDeliver,
