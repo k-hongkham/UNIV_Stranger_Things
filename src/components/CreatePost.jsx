@@ -4,20 +4,19 @@ import { createPost } from "../api";
 const CreatePost = ({ post, setPost }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("0");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("title:", title);
-    console.log("description:", description);
     const createdPost = {
       title: title,
       description: description,
+      price: price,
+      willDeliver: true,
     };
-    const response = await createPost(
-      createdPost,
-      window.localStorage.getItem("token")
-    );
-    console.log("trying to add", response);
+    console.log("title:", title);
+    console.log("description:", description);
+    createPost(createdPost, window.localStorage.getItem("token"));
 
     setTitle("");
     setDescription("");
@@ -30,12 +29,14 @@ const CreatePost = ({ post, setPost }) => {
       <h3>CREATE!!!</h3>
       <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           placeholder="TITLE"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
         <input
+          required
           type="text"
           placeholder="DESCRIPTION"
           value={description}
