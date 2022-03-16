@@ -10,6 +10,7 @@ const SinglePost = ({ token, post, posts, setPosts }) => {
   };
   return (
     <div className="single_post_container">
+      <h3>UPDATE ME!@!!</h3>
       <h3>{post.title}</h3>
       <div>{post.description}</div>
       <form
@@ -22,7 +23,7 @@ const SinglePost = ({ token, post, posts, setPosts }) => {
           value={postTitle}
           onChange={(e) => setPostTitle(e.target.value)}
         />
-        <button type="submit">Update Title!</button>
+        <button type="submit" onClick={() => }>Update Title</button>
       </form>
     </div>
   );
