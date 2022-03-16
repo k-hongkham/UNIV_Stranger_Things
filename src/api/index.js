@@ -34,11 +34,11 @@ export const createPost = async (postDescription, token) => {
     },
     body: JSON.stringify({
       post: {
-        title: postDescription.title,
-        description: postDescription.description,
-        location: postDescription.location,
-        price: postDescription.price,
-        willDeliver: postDescription.willDeliver,
+        title,
+        description,
+        // location: postDescription.location,
+        // price: postDescription.price,
+        // willDeliver: postDescription.willDeliver,
       },
     }),
   });
