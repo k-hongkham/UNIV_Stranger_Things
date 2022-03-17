@@ -14,8 +14,8 @@ const Main = () => {
     const localStorageToken = localStorage.getItem("token");
     console.log(token);
     setToken(localStorageToken);
-    console.log("current token:", token);
   }, [token]);
+
   return (
     <div className="main">
       <SignUp setToken={setToken} />
