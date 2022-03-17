@@ -1,8 +1,18 @@
-import React, { UseState } from "react";
+import React, { useState } from "react";
 
 const CreatePost = () => {
-  const [title, setTitle] = UseState("");
-  const [details, setDetails] = UseState("");
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const createdPost = {
+      title: title,
+      details: details,
+    };
+    console.log(title);
+    console.log(details);
+  };
 
   return (
     <div className="CreatePostContainer">
@@ -15,14 +25,14 @@ const CreatePost = () => {
         <input
           type="text"
           placeholder="title"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="details"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
         />
         <button type="submit">Enter</button>
       </form>

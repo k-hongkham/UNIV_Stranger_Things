@@ -12,6 +12,7 @@ const Main = () => {
       <SignUp />
       <Navbar />
       <h1>hello main</h1>
+      <CreatePost />
       <Posts />
     </div>
   );
