@@ -39,17 +39,23 @@ export const registerUser = async (username, password) => {
   return data;
 };
 
-export const createPost = async () => {
-  const response = await fetch(`${base_url}//posts`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      post: createdPost,
-    }),
-  });
-  const data = await response.json();
-  return data;
+export const createPost = async (createdPost, token) => {
+  try {
+    const response = await fetch(`${base_url}//posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: createdPost,
+      }),
+    });
+    const data = await response.json();
+    if (data.success === false) {
+      throw new Error(data.error.message);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };

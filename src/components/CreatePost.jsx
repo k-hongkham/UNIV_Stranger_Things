@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPost } from "../api";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -12,6 +13,10 @@ const CreatePost = () => {
     };
     console.log(title);
     console.log(details);
+    createPost(createdPost, window.localStorage.getItem("token"));
+    setTitle("");
+    setDetails("");
+    console.log("these are out title and details", title, details);
   };
 
   return (
