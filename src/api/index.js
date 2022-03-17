@@ -55,7 +55,7 @@ export const updatePost = async (updateObject, token, postId) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      post: { updateObject },
+      post: updateObject,
     }),
   });
   const data = await response.json();
