@@ -47,17 +47,23 @@ export const createPost = async (createdPost, token) => {
   }
 };
 
-export const updatePost = async (updateObject, token, postId) => {
-  const response = await fetch(`${base_url}/posts/${postId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      post: { updateObject },
-    }),
-  });
-  const data = await response.json();
-  return data;
+export const updatePost = async (updateObj, token, postId) => {
+  try {
+    const response = await fetch(`${base_url}/posts/${postId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: updateobj,
+      }),
+    });
+    const data = await response.json();
+    if (data.success === false) {
+      throw new Error(data.error.message);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
