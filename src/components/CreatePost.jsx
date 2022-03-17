@@ -3,45 +3,57 @@ import { createPost } from "../api";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
-  const [details, setDetails] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("0");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const createdPost = {
       title: title,
-      details: details,
+      description: description,
+      price: price,
     };
     console.log(title);
-    console.log(details);
+
+    console.log(price);
     createPost(createdPost, window.localStorage.getItem("token"));
     setTitle("");
-    setDetails("");
-    console.log("these are out title and details", title, details);
+    setDescription("");
+    setPrice("");
+    console.log("these are out title and details", title, description);
   };
 
   return (
-    <div className="CreatePostContainer">
-      <h3>CREATE</h3>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e, el._id);
-        }}
-      >
+    <>
+      <h3>CREATE!!!</h3>
+      <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
-          placeholder="title"
+          placeholder="TITLE"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        />
+        ></input>
         <input
+          required
           type="text"
-          placeholder="details"
-          value={details}
-          onChange={(e) => setDetails(e.target.value)}
-        />
-        <button type="submit">Enter</button>
+          placeholder="DESCRIPTION"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        ></input>
+        <input
+          required
+          type="text"
+          placeholder="PRICE"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        ></input>
+
+        <button type="submit" className="add_posts_btn">
+          SUBMIT
+        </button>
       </form>
-    </div>
+    </>
   );
 };
 
