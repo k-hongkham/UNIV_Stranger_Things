@@ -38,3 +38,18 @@ export const registerUser = async (username, password) => {
   const data = await response.json();
   return data;
 };
+
+export const createPost = async () => {
+  const response = await fetch(`${base_url}//posts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: createdPost,
+    }),
+  });
+  const data = await response.json();
+  return data;
+};
