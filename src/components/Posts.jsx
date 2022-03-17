@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
-import Edit from "./Edit";
+import SinglePost from "./SinglePost";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -21,7 +21,12 @@ const Posts = () => {
       {posts.map((post, idx) => {
         return (
           <>
-            <Edit key={idx} setEditPost={setEditPost} post_id={post_id} />
+            <SinglePost
+              key={idx}
+              post={post}
+              posts={posts}
+              setPosts={setPosts}
+            />
           </>
         );
       })}
