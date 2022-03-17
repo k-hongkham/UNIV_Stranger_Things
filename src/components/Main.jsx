@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Posts from "./Posts";
 import Navbar from "./Navbar";
 import SignUp from "./SignUp";
+import CreatePost from "./CreatePost";
 
 const Main = () => {
   const [token, setToken] = useState("");
