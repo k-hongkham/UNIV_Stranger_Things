@@ -6,7 +6,15 @@ const SinglePost = ({ post, posts, setPosts }) => {
   const [description, setDescription] = useState("");
   const postId = 
 
- 
+  const handleSubmit = (e, postId) => {
+    e.preventDefault();
+
+    const editedPosts = posts.map((post) => {
+      if (post._id === postId) {
+      } else {
+        return post;
+      }
+    });
     const updateObj = {
       Title: title,
       Description: description,
