@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { updatePost } from "../api";
 
-const SinglePost = ({ token, post, posts, setPosts }) => {
-  const [postTitle, setPostTitle] = useState("");
+const SinglePost = ({ post, posts, setPosts }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const postId = 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ 
     const updateObj = {
-      postTitle: title,
-      postDescription: description,
+      Title: title,
+      Description: description,
     };
-    console.log(post._id);
-    updatePost(updateObj, window.localStorage.getItem("token"), post._id);
+    updatePost(updateObj, window.localStorage.getItem("token"), postId);
+    setPosts(editedPosts);
+    setTitle("");
+    setDescription("");
+    console.log(updateObj);
     // const newPost = posts.map (post => {
     //   if(post._id === pos)
     // })
-    console.log("postID:", post_id);
   };
   return (
     <div className="single_post_container">
@@ -29,8 +32,13 @@ const SinglePost = ({ token, post, posts, setPosts }) => {
       >
         <input
           placeholder="title"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          placeholder="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <button type="submit" onClick={() => {}}>
           Update Title
