@@ -22,7 +22,8 @@ const Posts = () => {
       {posts.map((el, idx) => {
         return (
           <>
-<SinglePost posts={posts} setPosts={setPosts} el={el} key={idx}/>       </>
+            <SinglePost posts={posts} setPosts={setPosts} el={el} key={idx} />{" "}
+          </>
         );
       })}
     </>
