@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
+import CreatePost from "./CreatePost";
 
 const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
   useEffect(() => {
@@ -28,9 +29,11 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
   };
   return (
     <>
+      <CreatePost />
       {posts.map((post, idx) => {
         return (
           <>
+            {}
             <h3>{post.title}</h3>
             <h2>Seller: {post.author.username}</h2>
             <div>Description:</div>
