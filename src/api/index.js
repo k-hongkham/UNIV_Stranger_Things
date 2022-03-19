@@ -7,6 +7,28 @@ export const fetchAllPosts = async () => {
   return data;
 };
 
+export const createPost = async (createdPost, token) => {
+  try {
+    const response = await fetch(`${base_url}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: createdPost,
+      }),
+    });
+    const data = await response.json();
+    // console.log("creat post response:", data);
+    if (data.success === false) {
+      throw new Error(data.error.message);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const updatePost = async (updateObject, token, postId) => {
   const response = await fetch(`${base_url}/posts/${postId}`, {
     method: "PATCH",
