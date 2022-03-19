@@ -11,6 +11,8 @@ const Main = () => {
     _id: "",
   });
   const [posts, setPosts] = useState([]);
+  const [token, setToken] = useState("");
+
   return (
     <div>
       <SignUp />
@@ -22,6 +24,7 @@ const Main = () => {
         setPosts={setPosts}
         theUser={theUser}
         setTheUser={setTheUser}
+        token={token}
       />
     </div>
   );

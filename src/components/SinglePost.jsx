@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 // import { updatePost } from "../api";
 
-const SinglePost = ({ token, el, posts, setPosts }) => {
-  const [postTitle, setPostTitle] = useState("");
+const SinglePost = ({ el, posts, setPosts, theUser, setTheUserSS }) => {
+  const [title, setTitle] = useState("");
 
-  // const handleSubmit = async (e, postId) => {
-  //   e.preventDefault();
-  //   const { data } = await updatePost({ title: postTitle }, token, postId);
-  // };
   return (
-    <div>
-      <h2>{el.author.username}</h2>
-      <h3>{el.title}</h3>
-      <div>{el.description}</div>
-      <div>{el.price}</div>
-      <div>{el.location}</div>
-      <div>{el.willDeliver}</div>
+    <div className="posts_container" key={post._id}>
+      {posts.map((post, idx) => {
+        <h3>{el.title}</h3>
+        <h2>{el.author.username}</h2>
+        <div>{el.description}</div>
+        <div>{el.price}</div>
+        <div>{el.location}</div>
+        <div>{el.willDeliver}</div>
 
+      })}
+
+      <button
+        onClick={() => {
+          handleClick(post._id, token);
+        }}
+      >
+        DELETE
+      </button>
       {/* <form
         onSubmit={(e) => {
           handleSubmit(e, el._id);
