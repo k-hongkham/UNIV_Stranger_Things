@@ -95,8 +95,8 @@ export const isMe = async (token) => {
   return data;
 };
 
-export const deletePost = async (token, post_id) => {
-  const response = await fetch(`${base_url}/posts/POST_ID`, {
+export const deletePost = async (token, postId) => {
+  const response = await fetch(`${base_url}/posts/${postId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

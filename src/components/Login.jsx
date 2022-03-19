@@ -2,20 +2,6 @@ import React, { useEffect } from "react";
 import { isMe } from "../api";
 
 const Login = () => {
-  useEffect(() => {
-    const signedIn = async () => {
-      if (token) {
-        const response = await isMe(token);
-        setTheUser({
-          messages: response.data.messages,
-          username: response.data.username,
-          _id: result.data._id,
-        });
-      }
-    };
-    signedIn();
-  }, [token]);
-
   return (
     <div>
       <form
