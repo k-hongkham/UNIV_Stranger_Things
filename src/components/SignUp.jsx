@@ -32,7 +32,7 @@ const SignUp = ({ setToken }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button type="submit"> Enter</button>
+        <button type="submit"> REGISTER</button>
       </form>
     </div>
   );

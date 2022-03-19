@@ -4,7 +4,7 @@ import { createPost } from "../api";
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("0");
+  const [price, setPrice] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,13 +44,13 @@ const CreatePost = () => {
         <input
           required
           type="text"
-          placeholder="PRICE"
+          placeholder="PRICE $0.00"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         ></input>
 
         <button type="submit" className="add_posts_btn">
-          SUBMIT
+          SUBMIT POST
         </button>
       </form>
     </>

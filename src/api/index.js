@@ -30,18 +30,24 @@ export const createPost = async (createdPost, token) => {
 };
 
 export const updatePost = async (updateObject, token, postId) => {
-  const response = await fetch(`${base_url}/posts/${postId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      post: { updateObject },
-    }),
-  });
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${base_url}/posts/${postId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: { updateObject },
+      }),
+    });
+    const data = await response.json();
+    if (data.success === false) {
+      throw new Erro(data.error.message);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const registerUser = async (username, password) => {
@@ -61,7 +67,7 @@ export const registerUser = async (username, password) => {
   return data;
 };
 
-export const Login = async (username, password) => {
+export const login = async (username, password) => {
   const response = await fetch(`${base_url}/users/login`, {
     method: "POST",
     headers: {
