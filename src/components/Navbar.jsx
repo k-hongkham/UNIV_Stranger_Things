@@ -5,18 +5,11 @@ const Navbar = ({ token }) => {
     <div>
       <div>
         <nav>
-          <Link className="nav_links" to="/posts">
-            POSTS
-          </Link>
-          <Link className="nav_links" to="/signup">
-            SIGN UP
-          </Link>
-          <Link className="nav_links" to="/login">
-            LOG IN
-          </Link>
-          <Link className="nav_links" to="/profile">
-            PROFILES
-          </Link>
+          <Link to="/">HOME</Link>
+          <Link to="/Posts">POSTS</Link>
+          <Link to="/SignUp">SIGN UP</Link>
+          <Link to="/Login">LOG IN</Link>
+          <Link to="/Profile">PROFILES</Link>
         </nav>
       </div>
     </div>

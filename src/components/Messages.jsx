@@ -14,7 +14,7 @@ const Messages = ({ post, idx, token, theUser, setTheUser }) => {
         username: theUser.username,
       },
     };
-    const response = theUser.Messages;
+    const response = theUser.messages;
     response.push(newObj);
     setTheUser({ ...theUser, messages: response });
   };
@@ -24,7 +24,7 @@ const Messages = ({ post, idx, token, theUser, setTheUser }) => {
       key={post._id}
       onSubmit={async (e) => {
         e.preventDefault();
-        const response = await newMessage(token, post._id, content);
+        const response = await newMessage(token, post._id, msgs);
         allMsgs(msgs, post);
         setMsgs("");
       }}

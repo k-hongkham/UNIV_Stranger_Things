@@ -108,7 +108,7 @@ export const deletePost = async (token, postId) => {
 };
 
 export const newMessage = async (token, id, content) => {
-  const response = await fetch(`${baseURL}/posts/${id}/messages`, {
+  const response = await fetch(`${base_url}/posts/${id}/messages`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

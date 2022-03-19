@@ -40,34 +40,46 @@ const Main = () => {
   }, [token]);
 
   return (
-    <div className="main_page_container">
-      <Navbar token={token} />
-      <Routes>
-        <Route path="/SignUp">
-          <SignUp token={token} setToken={setToken} />
-        </Route>
-        <Route path="/Login">
-          <Login setToken={setToken} />
-        </Route>
-        <Route path="/Profile">
-          <Profile
-            token={token}
-            setToken={setToken}
-            theUser={theUser}
-            setTheUser={setTheUser}
-          />
-        </Route>
-        <Route path="/Posts">
-          <Posts
-            posts={posts}
-            setPosts={setPosts}
-            theUser={theUser}
-            setTheUser={setTheUser}
-            token={token}
-          />
-        </Route>
-      </Routes>
-    </div>
+    <Router>
+      <div className="main_page_container">
+        <Navbar token={token} />
+        <Routes>
+          <Route
+            path="/SignUp"
+            element={<SignUp token={token} setToken={setToken} />}
+          >
+            {/* <SignUp token={token} setToken={setToken} /> */}
+          </Route>
+
+          <Route path="/Login" element={<Login setToken={setToken} />}></Route>
+
+          <Route
+            path="/Profile"
+            element={
+              <Profile
+                token={token}
+                setToken={setToken}
+                theUser={theUser}
+                setTheUser={setTheUser}
+              />
+            }
+          ></Route>
+
+          <Route
+            path="/Posts"
+            element={
+              <Posts
+                posts={posts}
+                setPosts={setPosts}
+                theUser={theUser}
+                setTheUser={setTheUser}
+                token={token}
+              />
+            }
+          ></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

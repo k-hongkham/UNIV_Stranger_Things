@@ -4,8 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Main } from "./components";
 //testing
 ReactDom.render(
-  <Router>
-    <Main />
-  </Router>,
+  <Main />,
+
   document.getElementById("app")
 );
