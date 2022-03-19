@@ -104,22 +104,29 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
           <div>{post.description}</div>
           <div>Price:{post.price}</div>
           <div>Location: {post.location}</div>
-          {!theUser._id ? null : theUser._id === post.author._id}
-          <button onClick={() => handleDelete(post._id, token)}>DELETE</button>
-          : addMsg.makeMsg ? ( idx == addMsg.idx ? (
-          <Messages
-            post={post}
-            idx={idx}
-            setAddMsg={setAddMsg}
-            token={token}
-            theUser={theUser}
-            setTheUser={setTheUser}
-          />
-          ): (
-          <button id={idx} onClick={handleMsgs}>
-            SEND
-          </button>
-          )) : null
+          {!theUser._id ? null : theUser._id === post.author._id ? (
+            <button onClick={() => handleDelete(post._id, token)}>
+              DELETE
+            </button>
+          ) : addMsg.makeMsg ? (
+            idx == addMsg.idx ? (
+              <Messages
+                post={post}
+                idx={idx}
+                token={token}
+                theUser={theUser}
+                setTheUser={setTheUser}
+              />
+            ) : (
+              <button id={idx} onClick={handleMsgs}>
+                SEND
+              </button>
+            )
+          ) : (
+            <button id={idx} onClick={handleMsgs}>
+              SEND
+            </button>
+          )}
         </div>
       ))}
     </>

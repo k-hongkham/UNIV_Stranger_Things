@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { newMessage } from "../api";
 
-const Messages = ({ post, idx, setAddMsg, token, theUser, setTheUser }) => {
+const Messages = ({ post, idx, token, theUser, setTheUser }) => {
   const [msgs, setMsgs] = useState("");
 
   const allMsgs = (msgs, post) => {

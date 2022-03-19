@@ -12,6 +12,7 @@ const CreatePost = () => {
       title: title,
       description: description,
       price: price,
+      Location: Location,
     };
     console.log(title);
 
@@ -47,6 +48,14 @@ const CreatePost = () => {
           placeholder="PRICE $0.00"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        ></input>
+
+        <input
+          required
+          type="text"
+          placeholder="WHERE"
+          value={Location}
+          onChange={(e) => setLocation(e.target.value)}
         ></input>
 
         <button type="submit" className="add_posts_btn">

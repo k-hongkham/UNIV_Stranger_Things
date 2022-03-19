@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { isMe } from "../api";
 
-const Login = () => {
+const Login = ({ setToken }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div>
       <form
