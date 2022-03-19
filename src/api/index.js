@@ -43,7 +43,7 @@ export const updatePost = async (updateObject, token, postId) => {
     });
     const data = await response.json();
     if (data.success === false) {
-      throw new Erro(data.error.message);
+      throw new Error(data.error.message);
     }
   } catch (error) {
     console.error(error);
@@ -86,6 +86,18 @@ export const login = async (username, password) => {
 
 export const isMe = async (token) => {
   const response = await fetch(`${base_url}/users/me`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
+export const deletePost = async (token, post_id) => {
+  const response = await fetch(`${base_url}/posts/POST_ID`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

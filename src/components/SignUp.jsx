@@ -32,6 +32,12 @@ const SignUp = ({ setToken }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        {/* <input
+          type="text"
+          placeholder="Verify Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></input> */}
         <button type="submit"> REGISTER</button>
       </form>
     </div>

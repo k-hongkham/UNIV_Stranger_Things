@@ -5,7 +5,11 @@ import SignUp from "./SignUp";
 import CreatePost from "./CreatePost";
 
 const Main = () => {
-  const [token, setToken] = useState("");
+  const [theUser, setTheUser] = useState({
+    messages: [],
+    username: "",
+    _id: "",
+  });
   const [posts, setPosts] = useState([]);
   return (
     <div>
@@ -13,7 +17,12 @@ const Main = () => {
       <Navbar />
       <h1>hello main</h1>
       <CreatePost />
-      <Posts />
+      <Posts
+        posts={posts}
+        setPosts={setPosts}
+        theUser={theUser}
+        setTheUser={setTheUser}
+      />
     </div>
   );
 };
