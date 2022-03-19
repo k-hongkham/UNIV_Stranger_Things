@@ -1,29 +1,63 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api";
 import CreatePost from "./CreatePost";
+import Messages from "./Messages";
 
 const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
   const [title, setTitle] = useState("");
+  const [addMsg, setAddMsg] = useState({
+    makeMsg: true,
+    idx: -1,
+  });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchValue, setSearchValue] = useState(posts);
+
+  const filter = (posts, searchTerm) => {
+    const filtered = [];
+
+    posts.map((post) => {
+      if (
+        post.author.username.includes(searchTerm) ||
+        post.title.includes(searchTerm) ||
+        post.description.includes(searchTerm) ||
+        post.price.includes(searchTerm) ||
+        post.location.includes(searchTerm)
+      ) {
+        filtered.push(post);
+      }
+    });
+    setSearchValue(filtered);
+  };
+
+  // useEffect(() => {
+  //   const getPosts = async () => {
+  //     const response = await fetchAllPosts();
+  //     const newPosts = response.data.posts;
+  //     setPosts(newPosts);
+  //     console.log("newPosts:", newPosts);
+  //   };
+  //   getPosts();
+  // }, [token]);
 
   useEffect(() => {
-    const getPosts = async () => {
-      const response = await fetchAllPosts();
-      const newPosts = response.data.posts;
-      setPosts(newPosts);
-      console.log("newPosts:", newPosts);
-    };
-    getPosts();
-  }, [token]);
+    filter(posts, searchTerm);
+  }, [posts]);
 
-  const handleFilter = async (e, postId) => {
-    e.preventDefault();
-    const { data } = await updatePost({ title: title }, token, postId);
-    console.log(data.post);
-    const filtered = posts.filter((post) => {
-      return post._id !== data.post._id;
-    });
-    const newPosts = [...filtered, data.post];
-    setPosts(newPosts);
+  // const handleFilter = async (e, postId) => {
+  //   e.preventDefault();
+  //   const { data } = await updatePost({ title: title }, token, postId);
+  //   console.log(data.post);
+  //   const filtered = posts.filter((post) => {
+  //     return post._id !== data.post._id;
+  //   });
+  //   const newPosts = [...filtered, data.post];
+  //   setPosts(newPosts);
+  // };
+
+  const handleMsgs = (e) => {
+    if (addMsg.idx !== e.target.id) {
+      setAddMsg({ makeMsg: true, idx: e.target.id });
+    }
   };
 
   const handleDelete = async (post_id, token) => {
@@ -43,8 +77,56 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
 
   return (
     <>
+      <form
+        className="search_bar"
+        onSubmit={(e) => {
+          e.preventDefault();
+          filter(posts, searchTerm);
+        }}
+      >
+        <input
+          placeholder="SEARCH POSTS"
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        ></input>
+        <button type="submit"> SEARCH</button>
+      </form>
+      {searchValue.map((post, idx) => {
+        return (
+          <div className="search_results" key={idx}>
+            <h3>{post.title}</h3>
+            <h2>Seller: {post.author.username}</h2>
+            <div>Description:</div>
+            <div>{post.description}</div>
+            <div>Price:{post.price}</div>
+            <div>Location: {post.location}</div>
+            <div>{post.willDeliver}</div>
+            {!theUser._id ? null : theUser._id === post.author.id} ? (
+            <button onClick={() => handleDelete(post._id, token)}>
+              DELETE
+            </button>
+            ) : addMsg.makeMsg ? ( idx == addMsg.idx ? (
+            <Messages
+              post={post}
+              idx={idx}
+              setAddMsg={setAddMsg}
+              token={token}
+              theUser={theUser}
+              setTheUser={setTheUser}
+            />
+            ): (
+            <button id={idx} onClick={handleMsgs}>
+              Send
+            </button>
+            ) : null )
+          </div>
+        );
+      })}
+
       <CreatePost />
-      {posts.map((post, idx) => {
+      {/* {posts.map((post, idx) => {
         return (
           <>
             <h3>{post.title}</h3>
@@ -53,16 +135,13 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
             <div>{post.description}</div>
             <div>Price:{post.price}</div>
             <div>Location: {post.location}</div>
-            <div>{post.willDeliver}</div>
-            {!theUser._id ? null : theUser._id === post.author.id}{" "}
-            {/* {
+            <div>{post.willDeliver}</div> */}
+
+      {/* {
               <button onClick {() => handleDelete(post._id, token)}>
                 DELETE
               </button>
             } */}
-          </>
-        );
-      })}
     </>
   );
 };

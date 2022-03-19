@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Posts from "./Posts";
 import Navbar from "./Navbar";
 import SignUp from "./SignUp";
-import { useEffect } from "react/cjs/react.production.min";
+
 import { isMe } from "../api";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
