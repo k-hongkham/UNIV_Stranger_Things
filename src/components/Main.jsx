@@ -30,7 +30,7 @@ const Main = () => {
         setTheUser({
           messages: response.data.messages,
           username: response.data.username,
-          _id: result.data._id,
+          _id: response.data._id,
         });
       }
     };
