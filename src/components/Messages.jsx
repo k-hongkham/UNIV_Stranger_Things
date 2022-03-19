@@ -30,23 +30,15 @@ const Messages = ({ post, idx, setAddMsg, token, theUser, setTheUser }) => {
       }}
     >
       <input
-        placeholder="Words"
+        required
+        placeholder="WORDS"
         key={`message: ${idx}`}
         value={msgs}
         onChange={(e) => {
           setMsgs(e.target.value);
         }}
-        required
       ></input>
       <button type="submit">SEND</button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setAddMsg({ ...addMsg, makeMsg: false });
-        }}
-      >
-        CLEAR
-      </button>
     </form>
   );
 };

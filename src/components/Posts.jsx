@@ -95,6 +95,7 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
         ></input>
         <button type="submit"> SEARCH</button>
       </form>
+      <CreatePost />
       {searchValue.map((post, idx) => (
         <div className="search_results" key={post._id}>
           <h3>{post.title}</h3>
@@ -103,10 +104,9 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
           <div>{post.description}</div>
           <div>Price:{post.price}</div>
           <div>Location: {post.location}</div>
-          <div>{post.willDeliver}</div>
-          {!theUser._id ? null : theUser._id === post.author._id} ? (
+          {!theUser._id ? null : theUser._id === post.author._id}
           <button onClick={() => handleDelete(post._id, token)}>DELETE</button>
-          ) : addMsg.makeMsg ? ( idx == addMsg.idx ? (
+          : addMsg.makeMsg ? ( idx == addMsg.idx ? (
           <Messages
             post={post}
             idx={idx}
@@ -122,8 +122,6 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
           )) : null
         </div>
       ))}
-
-      <CreatePost />
     </>
   );
 };
