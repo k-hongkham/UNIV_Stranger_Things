@@ -21,13 +21,18 @@ h3 {
   background-color: lightyellow;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0px;
+  height: 75px;
+  padding: 10px;
+  text-align: center;
 }
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
   display: flex;
-  background-color: lavender;
+  background-color: lavenderblush;
   margin: 0px;
+  height: 30px;
+  padding: 10px;
 }
 .search_results {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
