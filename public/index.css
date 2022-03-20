@@ -26,9 +26,17 @@ h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
   display: flex;
+  background-color: lavender;
+  margin: 0px;
 }
 .search_results {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  height: 300px;
+  width: 200px;
+  background-color: aliceblue;
 }
 form {
   display: flex;
