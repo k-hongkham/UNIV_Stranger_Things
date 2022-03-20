@@ -1,0 +1,16 @@
+.main_page_container {
+  background-color: lightgrey;
+}
+nav {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+}
+
+nav a {
+  padding: 10px;
+}
+.search_bar {
+  padding: 10px;
+  background-color: lightcoral;
+}
