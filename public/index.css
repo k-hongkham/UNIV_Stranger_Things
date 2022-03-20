@@ -14,3 +14,11 @@ nav a {
   padding: 10px;
   background-color: lightcoral;
 }
+h3 {
+  background-color: lightyellow;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+}
