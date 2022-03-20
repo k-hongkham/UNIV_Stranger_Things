@@ -5,10 +5,12 @@ nav {
   background-color: aliceblue;
   display: flex;
   flex-direction: row;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 nav a {
   padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .search_bar {
   padding: 10px;
@@ -16,6 +18,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h3 {
   background-color: lightyellow;
