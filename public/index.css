@@ -52,3 +52,7 @@ form {
   justify-content: space-between;
   background-color: lightcoral;
 }
+nav {
+  display: flex;
+  justify-content: center;
+}
