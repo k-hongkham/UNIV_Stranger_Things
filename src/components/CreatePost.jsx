@@ -27,7 +27,7 @@ const CreatePost = () => {
 
   return (
     <>
-      <h3>CREATE!!!</h3>
+      <h3>CREATE !!!</h3>
       <form onSubmit={handleSubmit}>
         <input
           required

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { isMe } from "../api";
+import React, { useState } from "react";
+import { login } from "../api";
 
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState("");

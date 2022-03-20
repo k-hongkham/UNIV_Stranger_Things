@@ -4,6 +4,7 @@ import { useState } from "react/cjs/react.production.min";
 const Profile = ({ setToken, theUser, setTheUser }) => {
   const handleLogOut = () => {
     setToken("");
+    localStorage.clear();
     setTheUser({
       messages: [],
       username: "",
@@ -49,7 +50,7 @@ const Profile = ({ setToken, theUser, setTheUser }) => {
           handleLogOut();
         }}
       >
-        <button type="submit"> LOT OUT</button>
+        <button type="submit"> LOG OUT</button>
       </form>
     </>
   );

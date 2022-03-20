@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Posts from "./Posts";
-import Navbar from "./Navbar";
-import SignUp from "./SignUp";
-import Profile from "./Profile";
-import Login from "./Login";
-
+// import Posts from "./Posts";
+// import Navbar from "./Navbar";
+// import SignUp from "./SignUp";
+// import Profile from "./Profile";
+// import Login from "./Login";
+import { Posts, Navbar, SignUp, Profile, Login } from "./index";
 import { isMe } from "../api";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
