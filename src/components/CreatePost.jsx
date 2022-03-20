@@ -5,6 +5,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +13,7 @@ const CreatePost = () => {
       title: title,
       description: description,
       price: price,
-      Location: Location,
+      Location: location,
     };
     console.log(title);
 
@@ -54,7 +55,7 @@ const CreatePost = () => {
           required
           type="text"
           placeholder="WHERE"
-          value={Location}
+          value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></input>
 
