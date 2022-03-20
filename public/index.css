@@ -25,8 +25,10 @@ h3 {
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
+  display: flex;
 }
 .search_results {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 form {
   display: flex;
