@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { fetchAllPosts } from "../api";
+import { fetchAllPosts, deletePost, updatePost } from "../api";
 import CreatePost from "./CreatePost";
 import Messages from "./Messages";
-import { deletePost } from "../api";
+// import { deletePost } from "../api";
 
 const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
   const [addMsg, setAddMsg] = useState({
@@ -45,7 +45,7 @@ const Posts = ({ token, theUser, setTheUser, posts, setPosts }) => {
 
   const handleFilter = async (e, postId) => {
     e.preventDefault();
-    const { data } = await updatePost({ title: title }, token, postId);
+    const { data } = await updatePost(token, postId);
     console.log(data.post);
     const filtered = posts.filter((post) => {
       return post._id !== data.post._id;
